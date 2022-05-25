@@ -4,6 +4,7 @@ const authorText = document.getElementById('author');
 const telegramBtn = document.getElementById('telegram');
 const twitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
+const nahuicoordinates = document.getElementById('coordinates');
 
 
 const pageUrl = location.href;
@@ -65,7 +66,7 @@ let randomClass = [];
 
 
 function getRandomClass() {
-    const soundClasses = ['.sound_ohueniy', '.sound_pes','.sound_vam-smeshno','.sound_vova'];
+    const soundClasses = ['.sound_ohueniy', '.sound_pes','.sound_vam-smeshno','.sound_vova', '.sound_emotionalguy', '.sound_ofigel'];
     randomClass = soundClasses[Math.floor(Math.random() * soundClasses.length)];
 
 }
@@ -94,6 +95,17 @@ newQuoteBtn.addEventListener('click', newQuote);
 newQuoteBtn.addEventListener('click', function(e) {
     getRandomClass();
     const audio = document.querySelector(randomClass);
+    if(!audio) return; //stop function from running all together
+    console.log(audio);
+    
+    audio.play();
+    audio.currentTime = 0;
+
+
+});
+
+nahuicoordinates.addEventListener('click', function(e) {
+    const audio = document.querySelector('.sound_coordinates');
     if(!audio) return; //stop function from running all together
     console.log(audio);
     
